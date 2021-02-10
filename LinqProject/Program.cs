@@ -8,7 +8,7 @@ namespace LinqProject
     {
         static void Main(string[] args)
         {
-            List<Category> categories = new List<Category> 
+            List<Category> categories = new List<Category>
             {
                 new Category{CategoryId=1, CategoryName="Bilgisayar"},
                 new Category{CategoryId=2, CategoryName="Telefon"},
@@ -21,19 +21,22 @@ namespace LinqProject
                 new Product{ProductId=4, CategoryId= 2, ProductName="Samsung Telefon", QuantitiyPerUnit="4 GB Ram", UnitPrice=5000, UnitsInStock=15},
                 new Product{ProductId=5, CategoryId= 2, ProductName="Apple Telefon", QuantitiyPerUnit="4 GB Ram", UnitPrice=8000, UnitsInStock=0},
             };
+
+
+
             Console.WriteLine("Algoritmik---------");
 
             foreach (var product in products)
             {
 
-                if(product.UnitPrice > 5000 && product.UnitsInStock>3) 
-                { 
-                Console.WriteLine(product.ProductName);
+                if (product.UnitPrice > 5000 && product.UnitsInStock > 3)
+                {
+                    Console.WriteLine(product.ProductName);
                 }
             }
             Console.WriteLine("Linq----------");
 
-            var result = products.Where(product => product.UnitPrice > 5000 && product.UnitsInStock>3);
+            var result = products.Where(product => product.UnitPrice > 5000 && product.UnitsInStock > 3);
             foreach (var product in result)
             {
                 Console.WriteLine(product.ProductName);
@@ -42,7 +45,7 @@ namespace LinqProject
             GetProducts(products);
 
         }
-        static List<Product> GetProducts(List<Product> products)
+        List<Product> GetProducts(List<Product> products)
         {
             List<Product> filteredProducts = new List<Product>();
 
@@ -68,7 +71,7 @@ namespace LinqProject
 
     class Product
     {
-        public int ProductId { get; set; }
+        public int ProductId { get; set; } 
         public int CategoryId { get; set; } 
         public string ProductName { get; set; }
         public string QuantitiyPerUnit { get; set; }
